@@ -20,7 +20,8 @@ public class EmailService {
     @Autowired
     private JavaMailSender emailSender;
 
-    public EmailModel sendEmail(EmailModel emailModel) {
+    @SuppressWarnings("finally")
+	public EmailModel sendEmail(EmailModel emailModel) {
         emailModel.setSendDateEmail(LocalDateTime.now());
         try{
             SimpleMailMessage message = new SimpleMailMessage();
